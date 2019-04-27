@@ -21,17 +21,14 @@
               <?php
              
                 $conn = $pdo->open();
-                try
-				        {
+                try{
                   $stmt = $conn->prepare("SELECT * FROM category ORDER BY cat_slug ASC");
                   $stmt->execute();
-                  foreach($stmt as $row)
-				          {
+                  foreach($stmt as $row){
                     echo "<li><a href='category.php?category=".$row['cat_slug']."'>".$row['name']."</a></li>";                  
                   }
                 }
-                catch(PDOException $e)
-				        {
+                catch(PDOException $e){
                   echo "There is some problem in connection: " . $e->getMessage();
                 }
 
@@ -59,7 +56,7 @@
           <li class="dropdown messages-menu">
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-shopping-cart"></i>
+              <i class="glyphicon glyphicon-shopping-cart"></i>
               <span class="label label-success cart_count"></span>
             </a>
             <ul class="dropdown-menu">
@@ -85,7 +82,7 @@
 				  
                     <!-- User image -->
                     <li class="user-header">
-                      <img src="'.$image.'" class="img-circle" alt="User Image r">
+                      <img src="'.$image.'" class="img-circle" alt="User Image">
 
                       <p>
                         '.$user['firstname'].' '.$user['lastname'].'
